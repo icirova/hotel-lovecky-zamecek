@@ -1,25 +1,59 @@
-.logo {
-  cursor: pointer;
-}
 
 .banner {
     width: 100%;
     aspect-ratio: 16/9;
-    background-image: url(./hotel.jpg);
+    background-image: url(./hotel.webp);
     background-size: cover;
   }
+
+  .banner__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .banner__link {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+  }
+
+  .banner__link:hover {
+    color: bisque;
+    border: 2px solid bisque;
+  }
+
+  .banner__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
   
   .banner__stripe {
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
     padding: 0.5rem 0;
+    height: 100%;
+   
   }
   
-  .banner__stripe h1 {
-    font-family: 'Agbalumo', cursive;
-    font-size: 1.5rem;
-    text-align: center;
+  .banner__title {
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    font-size: 2rem;
     cursor: pointer;
+    color: bisque;
   }
   
   .banner__stripe .lead {
@@ -33,8 +67,8 @@
       padding: 1rem 0;
     }
     
-    .banner__stripe h1 {
-      font-size: 2rem;
+    .banner__title {
+      font-size: 2.5rem;
     }
   
     .banner__stripe .lead {

@@ -6,7 +6,7 @@ export const Footer = () => {
   <h2>Kontaktujte nás</h2>
   <div className="columns-2">
 
-  <img src="/components/Footer/mapa.png" alt="mapa" />
+  <img  className="footer__img" src="/components/Footer/mapa.png" alt="mapa" />
   <div className="address">
     <h3 className="address__title">Adresa:</h3> 
     <p className="address__item">Hotel u řeky</p>

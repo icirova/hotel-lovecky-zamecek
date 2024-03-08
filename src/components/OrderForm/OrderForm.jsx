@@ -7,7 +7,7 @@ export const OrderForm = () => {
   };
 
   return (
-    <section className="light">
+    <section className="light" id="section--order">
       <div className="container">
         <h2>Rezervujte si pokoj</h2>
         <div className="columns-2">

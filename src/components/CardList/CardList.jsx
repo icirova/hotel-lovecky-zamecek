@@ -20,8 +20,7 @@ export const CardList = ({rooms}) => {
 <section className="dark">
     <div className="container">
 
-    <h2>Naše pokoje</h2>
-    <p>Z naší nabídky pokojů si vybere každý.</p>
+    <h2>Naše apartmány</h2>
     <div className="cards-row">
 
     {rooms.map(oneRoom => {

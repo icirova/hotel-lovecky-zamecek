@@ -1,9 +1,15 @@
 .address__title {
-    margin: 10px 0 0 0;
+    margin-bottom:5px ;
     padding: 0;
+    color: bisque;
   }
   
   .address__item {
     margin: 0;
     padding: 0;
+  }
+
+  .footer__img {
+    display: block;
+    border: 2px solid white;
   }

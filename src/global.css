@@ -5,12 +5,18 @@
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+h2 {
+ 
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
 }
 
 .container {
@@ -33,7 +39,7 @@ section {
 }
 
 section.dark {
-  background-color: gray;
+  background-color: #5d6772;
   color: white;
 }
 
@@ -64,13 +70,13 @@ section.dark *::-webkit-scrollbar-thumb:hover {
 }
 
 section.light {
-  background-color: #e8e9f3;
+  background-color: bisque;
 }
 
 img {
   width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  display: block;
 }
 
 
