@@ -1,0 +1,43 @@
+.logo {
+  cursor: pointer;
+}
+
+.banner {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-image: url(./hotel.jpg);
+    background-size: cover;
+  }
+  
+  .banner__stripe {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0;
+  }
+  
+  .banner__stripe h1 {
+    font-family: 'Agbalumo', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .banner__stripe .lead {
+    font-size: 1rem;
+    margin: 0;
+    text-align: center;
+  }
+  
+  @media screen and (min-width: 740px) {
+    .banner__stripe {
+      padding: 1rem 0;
+    }
+    
+    .banner__stripe h1 {
+      font-size: 2rem;
+    }
+  
+    .banner__stripe .lead {
+      font-size: 1.2rem;
+    }
+  }

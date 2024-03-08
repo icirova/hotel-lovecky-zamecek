@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Poppins:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media screen and (min-width: 740px) {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+section {
+  padding: 2rem 0;
+}
+
+section.dark {
+  background-color: gray;
+  color: white;
+}
+
+section.dark a {
+  color: white;
+}
+
+section.dark *::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-button {
+  display: none;
+}
+
+section.dark *::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 0.5rem;
+}
+
+section.dark *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+section.light {
+  background-color: #e8e9f3;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+
+
+
+
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 740px) {
+  .columns-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
