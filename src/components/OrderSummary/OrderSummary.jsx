@@ -1,16 +1,29 @@
+import { useEffect, useState } from "react"
 import "./OrderSummary.css"
 
-export const OrderSummary = () => {
-  return <section className="light">
+export const OrderSummary = ({numNights, numGuests, apartment, catering, crib, pet }) => {
 
-    
-      <h2>Celková cena</h2>
-      <p>
-        1000 Kč
-      </p>
- 
+  const [price, setPrice] = useState("")
 
-  </section>
+   useEffect (
+    () => {
+
+      const getPrize =  () => {
+        const basePrice = apartment * numNights * numGuests
+        const cribPrice = crib * apartment * numNights
+        const petPrice = pet * apartment * numNights
+        const cateringPrice = catering * numNights * numGuests
+        const totalPrice = basePrice + cribPrice + petPrice + cateringPrice
+        setPrice(totalPrice) 
+      }
+      getPrize()
+
+    }, [numNights, numGuests, apartment,catering, crib, pet]
+   );
+
+  return <div className="summary-container"> 
+    <p className="summary">Celková cena pobytu: {price} Kč</p> 
+  </div>
 }
 
 
