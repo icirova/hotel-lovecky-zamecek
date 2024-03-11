@@ -8,7 +8,8 @@ export const Footer = () => {
 
   
 <div className="footer__img">
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d737.526971904469!2d16.101921000000004!3d50.51261100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTDCsDMwJzQ1LjQiTiAxNsKwMDYnMDYuOSJF!5e1!3m2!1scs!2scz!4v1710173444948!5m2!1scs!2scz" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d42943.67323466038!2d16.072886368544175!3d50.51360078026087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTDCsDMwJzQ1LjQiTiAxNsKwMDYnMDYuOSJF!5e1!3m2!1scs!2scz!4v1710174131616!5m2!1scs!2scz" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
  
   </div>
  
