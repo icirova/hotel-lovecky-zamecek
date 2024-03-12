@@ -29,8 +29,14 @@ export const RoomDetail = () => {
       <>
         <h2>{room.title}</h2>
         <img src={`/components/Card/img/${room.image}`} alt={`foto pokoje ${room.title}`} />
+       
         <p>{room.description}</p>
-        <p>{room.price}</p>
+
+        <h4 className="detail-subtitle">Kapacita:</h4>
+        <p>{room.capacity}</p>
+
+        <h4 className="detail-subtitle">Cena za osobu: </h4>
+        <p>{`${room.price} Kč/noc`}</p>
       </>
     )}
 </div>

@@ -32,7 +32,7 @@ export const OrderForm = () => {
         <h2>Rezervujte si pokoj</h2>
         <div className="columns-2">
           <div className="column">
-            <p>Prosím, vyplňte následující údaje pro rezervaci pokoje v našem hotelu. Pokud máte zájem o další služby, jako je snídaně, polopenze, dětská postýlka atd., prosím, nezapomeňte doplnit.</p>
+            <p>Vyplňte následující údaje pro rezervaci pokoje v našem hotelu. Pokud máte zájem o další služby, jako je snídaně, polopenze, či dětská postýlka, nezapomeňte je doplnit.</p>
             <p>Po odeslání formuláře vás budeme brzy kontaktovat s potvrzením vaší rezervace. Děkujeme za váš zájem o pobyt v našem hotelu. Budeme se těšit na vaši návštěvu!</p>
           </div>
 
@@ -73,44 +73,44 @@ export const OrderForm = () => {
                   <h4>Speciální požadavky:</h4>
                   <div className="check-item">
                     <label htmlFor="check1" className="field-label" >
-                      Dětská postýlka{""}
+                      Dětská postýlka 200 Kč/den
                     </label>
-                    <input id="check1" className="field-input" type="checkbox" value={0.5} onChange={handleChange}/>
+                    <input id="check1" className="field-input" type="checkbox" value={200} onChange={handleChange}/>
                   </div>
 
                   <div className="check-item">
                     <label htmlFor="check2" className="field-label">
-                      Pobyt s mazlíčkem{``}
+                      Pobyt s mazlíčkem 100 Kč/den
                     </label>
-                    <input id="check2" className="field-input" type="checkbox" value={0.25} onChange={handleChange}/>
+                    <input id="check2" className="field-input" type="checkbox" value={100} onChange={handleChange}/>
                   </div>
 
                   <h4>Typ stravování: </h4>
 
                   <div className="check-item">
                     <label htmlFor="radio1" className="field-label">
-                      Plná penze{``}
+                      Plná penze 950 Kč za osobu/den
                     </label>
                     <input id="radio1" className="field-input" type="radio" name="catering" value={950} onChange={handleChange} />
                   </div>
 
                   <div className="check-item">
                     <label htmlFor="radio2" className="field-label">
-                      Polopenze{``}
+                      Polopenze 450 Kč za osobu/den
                     </label>
                     <input id="radio2" className="field-input" type="radio" name="catering" value={450} onChange={handleChange}/>
                   </div>
 
                   <div className="check-item">
                     <label htmlFor="radio3" className="field-label">
-                      Snídaně{``}
+                      Snídaně 150 Kč za osobu/den
                     </label>
                     <input id="radio3" className="field-input" type="radio" name="catering" value={150} onChange={handleChange} />
                   </div>
 
                   <div className="check-item">
                     <label htmlFor="radio4" className="field-label">
-                      Vlastní{``}
+                      Vlastní
                     </label>
                     <input id="radio4" className="field-input" type="radio" name="catering" value={''} onChange={handleChange} />
                   </div>

@@ -2,7 +2,7 @@
   
     color: white;
     transition: transform 0.3s;
-    border: 2px solid white;
+  
    
     position: relative;
    
@@ -11,7 +11,7 @@
   
   .card:hover , .card--selected {
     color: bisque;
-    border: 2px solid bisque;
+    cursor: pointer;
     
     transform: scale(1.02);
    

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { CardList } from '../../components/CardList/CardList';
-import { OrderForm} from '../../components/OrderForm/OrderForm';
+import { OrderForm } from '../../components/OrderForm/OrderForm';
 import './style.css';
+import { Restaurant } from '../../components/Restaurant/Restaurant';
+import { Events } from '../../components/Events/Events';
 
 
 
@@ -31,6 +33,8 @@ export const HomePage = () => {
 
   return <>
       <CardList rooms={rooms} />
+      <Restaurant />
+      <Events />
       <OrderForm />
       
      

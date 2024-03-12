@@ -10,8 +10,8 @@ export const OrderSummary = ({numNights, numGuests, apartment, catering, crib, p
 
       const getPrize =  () => {
         const basePrice = apartment * numNights * numGuests
-        const cribPrice = crib * apartment * numNights
-        const petPrice = pet * apartment * numNights
+        const cribPrice = crib * numNights
+        const petPrice = pet * numNights
         const cateringPrice = catering * numNights * numGuests
         const totalPrice = basePrice + cribPrice + petPrice + cateringPrice
         setPrice(totalPrice) 
