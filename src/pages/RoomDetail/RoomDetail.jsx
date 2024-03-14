@@ -4,25 +4,19 @@ import { useState, useEffect } from "react"
 
 export const RoomDetail = () => {
 
-  const { id } = useParams()
-  const [room, setRoom] = useState(null)
+  const { id } = useParams();
+  const [room, setRoom] = useState(null);
 
   useEffect(
      () => {
-
       const fetchData = async () => {
         const response = await fetch(`http://localhost:4000/api/rooms/${id}`)
         const data = await response.json()
         const result = data.result
         setRoom(result)
-        console.log(result)
-        
-      }
-
+      };
       fetchData()
-      
-
-    }, [])
+    }, []);
 
   return <div className="container">
     {room && (
@@ -32,13 +26,12 @@ export const RoomDetail = () => {
        
         <p>{room.description}</p>
 
-        <h4 className="detail-subtitle">Kapacita:</h4>
+        <h4 className="detail__subtitle">Kapacita:</h4>
         <p>{room.capacity}</p>
 
-        <h4 className="detail-subtitle">Cena za osobu: </h4>
+        <h4 className="detail__subtitle">Cena za osobu: </h4>
         <p>{`${room.price} Kč/noc`}</p>
       </>
     )}
 </div>
-  
-}
+};

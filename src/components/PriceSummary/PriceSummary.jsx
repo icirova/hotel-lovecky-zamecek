@@ -3,11 +3,10 @@ import "./PriceSummary.css"
 
 export const PriceSummary = ({formData }) => {
 
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(0);
 
    useEffect (
     () => {
-
       const getPrize =  () => {
         const basePrice = formData.apartment * formData.nights * formData.persons
         const cribPrice = formData.crib * formData.nights
@@ -17,7 +16,6 @@ export const PriceSummary = ({formData }) => {
         setPrice(totalPrice) 
       }
       getPrize()
-
     }, [formData]
    );
 

@@ -1,7 +1,6 @@
 import "./CardList.css"
+import { useNavigate } from "react-router-dom"
 import { Card } from "/components/Card/Card"
-  import { useNavigate } from "react-router-dom"
-
 
 export const CardList = ({rooms}) => {
 
@@ -9,41 +8,29 @@ export const CardList = ({rooms}) => {
 
   const openDetail= (roomId) => {
     navigate(`/detail/${roomId}`)
-    console.log(roomId)
-   
-  }
+  };
 
-
-   
-  return <>
-
-<section className="dark">
+  return <section className="dark">
     <div className="container">
 
-    <h2>Naše apartmány</h2>
-    <p>V hlavní budově najdete recepci, restauraci a 4 stylové apartmány se dvěma až šesti lůžky s možností dětské postýlky.</p>
-    <p>Vřele přivítáme nejen vás, ale i vaše domácí mazlíčky. Pokud máte pejska nebo kočičku, neváhejte a vezměte je s sebou. </p>
+      <h2>Naše apartmány</h2>
+      <p>V hlavní budově najdete recepci, restauraci a 4 stylové apartmány se dvěma až šesti lůžky s možností dětské postýlky.</p>
+      <p>Vřele přivítáme nejen vás, ale i vaše domácí mazlíčky. Pokud máte pejska nebo kočičku, neváhejte a vezměte je s sebou. </p>
 
-    <div className="cards-row">
-
-    {rooms.map(oneRoom => {
-       return <Card 
-          key={oneRoom.id} 
-          image={oneRoom.image}
-          title={oneRoom.title} 
-          description={oneRoom.description}
-          openDetail={() => openDetail(oneRoom.id)} 
-          />
-          
-    })}
-
-   
-
-  </div>
-      
+      <div className="cards-row">
+        {rooms.map(oneRoom => {
+          return <Card 
+              key={oneRoom.id} 
+              image={oneRoom.image}
+              title={oneRoom.title} 
+              description={oneRoom.description}
+              openDetail={() => openDetail(oneRoom.id)} 
+              />
+        })}
+      </div>
     </div>
   </section>
 
   
-  </>
+
 }

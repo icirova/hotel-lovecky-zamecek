@@ -1,36 +1,28 @@
 .card {
-  
-    color: white;
-    transition: transform 0.3s;
-  
-   
-    position: relative;
-   
-    
-  }
-  
-  .card:hover , .card--selected {
-    color: bisque;
-    cursor: pointer;
-    
-    transform: scale(1.02);
-   
-  }
+  color: white;
+  transition: transform 0.3s;
+  position: relative;
+}
 
-  
-  
-  .card__title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-   width: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-   position: absolute;
-   top: 0;
-   left: 0;
-   padding: 1rem;
+.card:hover,
+.card--selected {
+  color: bisque;
+  cursor: pointer;
+  transform: scale(1.02);
+}
 
-  }
-
-  
-  
+.card__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}

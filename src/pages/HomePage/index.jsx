@@ -1,13 +1,13 @@
+import './style.css';
 import { useEffect, useState } from 'react';
 import { CardList } from '../../components/CardList/CardList';
 import { OrderForm } from '../../components/OrderForm/OrderForm';
-import './style.css';
 import { Restaurant } from '../../components/Restaurant/Restaurant';
 import { Events } from '../../components/Events/Events';
 
 export const HomePage = ({}) => {
 
-  const [rooms, setRooms] = useState([])
+  const [rooms, setRooms] = useState([]);
 
   useEffect(
     ()=> {
@@ -23,11 +23,10 @@ export const HomePage = ({}) => {
         } catch (error) {
           console.error("Chyba při načítání dat:", error.message);
         }
-      }
-
+      };
       fetchData()
     },[]
-  )
+  );
 
   return <>
       <CardList rooms={rooms} />
@@ -35,5 +34,4 @@ export const HomePage = ({}) => {
       <Events />
       <OrderForm />
   </>
-
 };

@@ -1,9 +1,8 @@
 import "./OrderForm.css";
-import { PriceSummary } from "../PriceSummary/PriceSummary";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
-
+import { PriceSummary } from "../PriceSummary/PriceSummary";
 
 const initialFormData = {
   name: '',
@@ -26,7 +25,6 @@ export const OrderForm = () => {
   //pro odscrolování na nevyplněná pole
   const nameRef = useRef(null);
   
-
   const handleChange = (event) => {
     const { id, name, value, checked } = event.target;
 
@@ -68,8 +66,7 @@ export const OrderForm = () => {
     }
   };
 
-  return (
-    <section className="light" id="section--order">
+  return <section className="light" id="section--order">
       <div className="container">
         <h2>Rezervujte si pokoj</h2>
         
@@ -264,5 +261,4 @@ export const OrderForm = () => {
         
       </div>
     </section>
-  );
 };

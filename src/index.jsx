@@ -1,6 +1,6 @@
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
 import './global.css';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider, } from 'react-router-dom';
 import { App } from './components/App';
 import { HomePage } from './pages/HomePage/';
 import { RoomDetail } from './pages/RoomDetail/RoomDetail';
