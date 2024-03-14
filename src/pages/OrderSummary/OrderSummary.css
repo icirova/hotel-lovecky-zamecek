@@ -1,0 +1,12 @@
+.summary__subtitle {
+    margin-top: 2.5rem;
+}
+
+.summary__link {
+    text-transform:uppercase;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+   margin-top: 2rem;
+   border-bottom: 2px solid black;
+}

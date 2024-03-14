@@ -5,9 +5,7 @@ import './style.css';
 import { Restaurant } from '../../components/Restaurant/Restaurant';
 import { Events } from '../../components/Events/Events';
 
-
-
-export const HomePage = () => {
+export const HomePage = ({}) => {
 
   const [rooms, setRooms] = useState([])
 
@@ -36,8 +34,6 @@ export const HomePage = () => {
       <Restaurant />
       <Events />
       <OrderForm />
-      
-     
   </>
 
 };

@@ -1,91 +1,70 @@
 import "./OrderForm.css";
-import { OrderSummary } from "../../components/OrderSummary/OrderSummary";
+import { PriceSummary } from "../PriceSummary/PriceSummary";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+
+
+const initialFormData = {
+  name: '',
+  phone: '',
+  apartment: '',
+  nights: '',
+  persons: '',
+  crib: '',
+  pet: '',
+  catering: '',
+};
 
 export const OrderForm = () => {
-   //stavy pro výpočet celkové ceny
-  const [apartment, setApartment] = useState("");
-  const [numNights, setNumNights] = useState("");
-  const [numGuests, setNumGuests] = useState("");
-  const [catering, setCatering] = useState("");
-  const [crib, setCrib] = useState("");
-  const [pet, setPet] = useState("");
 
-   //změna textu na tlačítku po odeslání
-   const [buttonText, setButtontext] = useState("Rezervovat");
+  const navigate = useNavigate();
 
-  //validace formuláře
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    apartment: "",
-    nights: "",
-    persons: "",
-    crib: "",
-    pet: "",
-    catering: "",
-  });
-  const [errors, setErrors] = useState({ name: "", phone: "" });
+  const [formData, setFormData] = useState(initialFormData);
+  const [errors, setErrors] = useState({ name: '', phone: '' });
+
+  //pro odscrolování na nevyplněná pole
+  const nameRef = useRef(null);
+  
 
   const handleChange = (event) => {
-    let { id, checked } = event.target;
+    const { id, name, value, checked } = event.target;
 
-    if(id.includes("radio"))
-      id = "radio"
-
-    // formulář
-    const { name, value } = event.target;
-  
-    switch (id) {
-      case "check1":
-        setCrib(checked ? event.target.value : "");
-        break;
-      case "check2":
-        setPet(checked ? event.target.value : "");
-        break;
-      case "persons":
-        setNumGuests(event.target.value);
-        break;
-      case "nights":
-        setNumNights(event.target.value);
-        break;
-      case "select-apartment":
-        setApartment(event.target.value);
-        break;
-      case "radio":
-        setCatering(checked ? event.target.value : "");
-        break;
+    let newValue = value;
+    if (id === 'check1' || id === 'check2') {
+      newValue = checked ? event.target.value : '';
     }
-    setFormData({ ...formData, [name]: value });
+
+    setFormData({ ...formData, [name]: newValue });
   };
 
-  //odeslání rezervace
   const handleClick = (event) => {
     event.preventDefault();
-  
-    // Validace jména a telefonu
+
     let newErrors = {};
 
-    if (formData.name.trim() === "") {
-      newErrors.name = "Prosím vyplňte vaše jméno.";
+    if (formData.name.trim() === '') {
+      newErrors.name = 'Prosím vyplňte vaše jméno.';
+      nameRef.current.scrollIntoView({ behavior: "smooth" });
     }
 
     if (formData.phone.trim() === '') {
-      newErrors.phone = 'Prosím vyplňte telefonní.';
+      newErrors.phone = 'Prosím vyplňte telefonní číslo.';
+      nameRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
       const phoneRegex = /^\+[0-9]{3}\s[0-9]{3}\s[0-9]{3}\s[0-9]{3}$/;
       if (!phoneRegex.test(formData.phone.trim())) {
         newErrors.phone = 'Prosím vyplňte telefonní číslo ve správném formátu.';
+        nameRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
 
-    // Aktualizace stavu s chybami
     setErrors(newErrors);
+  
 
-    // Pokud nejsou žádné chyby, formulář se odešle
     if (Object.keys(newErrors).length === 0) {
-      setButtontext("Rezervace byla odeslána.");
-      console.log("Form submitted successfully:", formData);
+      //předání dat z formuláře do URL pro načtení v OrderForm
+      navigate("/summary", {state: { formData } })
     }
   };
 
@@ -93,7 +72,7 @@ export const OrderForm = () => {
     <section className="light" id="section--order">
       <div className="container">
         <h2>Rezervujte si pokoj</h2>
-        <div className="columns-2">
+        
           <div className="column">
             <p>
               Vyplňte následující údaje pro rezervaci pokoje v našem hotelu.
@@ -109,7 +88,7 @@ export const OrderForm = () => {
 
           <form>
             <div className="form-fields">
-              <label htmlFor="name" className="field-label">
+              <label htmlFor="name" className="field-label"  ref={nameRef}>
                 Jméno a příjmení:{" "}
                 {errors.name && (
                   <span className="error-message">{errors.name}</span>
@@ -122,13 +101,12 @@ export const OrderForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+               
               />
 
               <label htmlFor="phone" className="field-label">
                 Telefon:{" "}
-                {errors.phone && (
-                  <span className="error-message">{errors.phone}</span>
-                )}
+                {errors.phone && (<span className="error-message">{errors.phone}</span>)}
               </label>
               <input
                 id="phone"
@@ -138,6 +116,7 @@ export const OrderForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                
               />
 
               <label htmlFor="select-apartment" className="field-label">
@@ -166,7 +145,7 @@ export const OrderForm = () => {
                 type="number"
                 min="1"
                 name="nights"
-                value={numNights}
+                value={formData.nights}
                 onChange={handleChange}
               />
 
@@ -180,7 +159,7 @@ export const OrderForm = () => {
                 min="1"
                 max="9"
                 name="persons"
-                value={numGuests}
+                value={formData.persons}
                 onChange={handleChange}
               />
 
@@ -275,20 +254,14 @@ export const OrderForm = () => {
               </div>
             </div>
 
-            <OrderSummary
-              numNights={numNights}
-              numGuests={numGuests}
-              apartment={apartment}
-              catering={catering}
-              crib={crib}
-              pet={pet}
-            />
+            <PriceSummary formData={formData}/>
 
             <button className="wide" onClick={handleClick}>
-              {buttonText}
+              Rezervovat
             </button>
           </form>
-        </div>
+
+        
       </div>
     </section>
   );

@@ -73,6 +73,10 @@ section.light {
   background-color: bisque;
 }
 
+.section.white {
+  background-color: white;
+}
+
 img {
   width: 100%;
   height: auto;

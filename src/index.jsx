@@ -4,6 +4,7 @@ import './global.css';
 import { App } from './components/App';
 import { HomePage } from './pages/HomePage/';
 import { RoomDetail } from './pages/RoomDetail/RoomDetail';
+import { OrderSummary } from './pages/OrderSummary/OrderSummary';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: '/detail/:id',
         element: <RoomDetail />
+      },
+      {
+        path: '/summary',
+        element: <OrderSummary />
       }
     ] 
   },
