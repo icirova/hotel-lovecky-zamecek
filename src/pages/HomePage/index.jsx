@@ -18,8 +18,7 @@ export const HomePage = ({}) => {
             throw new Error("Nepodařilo se načíst data.");
           }
           const data = await response.json();
-          const dataRooms = data.result;
-          setRooms(dataRooms);
+          setRooms(data);
         } catch (error) {
           console.error("Chyba při načítání dat:", error.message);
         }

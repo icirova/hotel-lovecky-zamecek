@@ -5,6 +5,7 @@ import { App } from './components/App';
 import { HomePage } from './pages/HomePage/';
 import { RoomDetail } from './pages/RoomDetail/RoomDetail';
 import { OrderSummary } from './pages/OrderSummary/OrderSummary';
+import { MenuPage } from './pages/MenuPage/MenuPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/summary',
         element: <OrderSummary />
+      },
+      {
+        path: '/menu',
+        element: <MenuPage />
       }
     ] 
   },

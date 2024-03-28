@@ -12,13 +12,12 @@ export const RoomDetail = () => {
       const fetchData = async () => {
         const response = await fetch(`http://localhost:4000/api/rooms/${id}`)
         const data = await response.json()
-        const result = data.result
-        setRoom(result)
+        setRoom(data)
       };
       fetchData()
     }, []);
 
-  return <div className="container">
+  return <section className="container">
     {room && (
       <>
         <h2>{room.title}</h2>
@@ -27,11 +26,11 @@ export const RoomDetail = () => {
         <p>{room.description}</p>
 
         <h4 className="detail__subtitle">Kapacita:</h4>
-        <p>{room.capacity}</p>
+        <p> {room.capacity} lůžek</p>
 
         <h4 className="detail__subtitle">Cena za osobu: </h4>
         <p>{`${room.price} Kč/noc`}</p>
       </>
     )}
-</div>
+</section>
 };

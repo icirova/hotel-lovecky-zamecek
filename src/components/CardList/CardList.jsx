@@ -10,6 +10,8 @@ export const CardList = ({rooms}) => {
     navigate(`/detail/${roomId}`)
   };
 
+console.log(rooms)
+
   return <section className="dark">
     <div className="container">
 
@@ -20,11 +22,11 @@ export const CardList = ({rooms}) => {
       <div className="cards-row">
         {rooms.map(oneRoom => {
           return <Card 
-              key={oneRoom.id} 
+              key={oneRoom.apartments_id} 
               image={oneRoom.image}
               title={oneRoom.title} 
               description={oneRoom.description}
-              openDetail={() => openDetail(oneRoom.id)} 
+              openDetail={() => openDetail(oneRoom.apartments_id)} 
               />
         })}
       </div>

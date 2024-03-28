@@ -4,6 +4,7 @@
 
 html {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 
 body {
@@ -22,6 +23,7 @@ h2 {
   margin-left: auto;
   padding-right: 1rem;
   padding-left: 1rem;
+  position: relative;;
 }
 
 @media screen and (min-width: 740px) {

@@ -1,0 +1,22 @@
+.restaurant__link {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    position: absolute;
+    bottom: 16px;
+   left: 32px;
+  }
+
+.restaurant__link:hover {
+    color: bisque;
+    border: 2px solid bisque;
+  }
+
+@media screen and (min-width: 740px) {
+    .restaurant__link {
+        left: 48px
+    }
+   
+}
