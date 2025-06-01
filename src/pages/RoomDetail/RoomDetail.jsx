@@ -10,7 +10,7 @@ export const RoomDetail = () => {
   useEffect(
      () => {
       const fetchData = async () => {
-        const response = await fetch(`http://localhost:4000/api/rooms/${id}`)
+        const response = await fetch(`http://${import.meta.env.VITE_HOTEL_SERVER_IP.trim()}:4000/api/rooms/${id}`)
         const data = await response.json()
         setRoom(data)
       };

@@ -8,12 +8,12 @@ import { Events } from '../../components/Events/Events';
 export const HomePage = ({}) => {
 
   const [rooms, setRooms] = useState([]);
-
+console.log(` Bla: ${import.meta.env.VITE_HOTEL_SERVER_IP}`)
   useEffect(
     ()=> {
       const fetchData = async () => {
         try {
-          const response = await fetch("http://localhost:4000/api/rooms");
+          const response = await fetch(`http://${import.meta.env.VITE_HOTEL_SERVER_IP.trim()}:4000/api/rooms`);
           if (!response.ok) {
             throw new Error("Nepodařilo se načíst data.");
           }

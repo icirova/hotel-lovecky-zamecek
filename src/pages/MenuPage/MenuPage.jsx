@@ -21,7 +21,7 @@ export const MenuPage = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/menu");
+        const response = await fetch(`http://${import.meta.env.VITE_HOTEL_SERVER_IP.trim()}:4000/api/menu`);
         if (!response.ok) {
           throw new Error("Nepodařilo se načíst data.");
         }
