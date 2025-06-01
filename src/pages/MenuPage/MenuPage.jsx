@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./MenuPage.css";
 import { MenuItem } from "../../components/MenuItem/MenuItem";
 import { MenuCategory } from "../../components/MenuCategory/MenuCategory";
+import { API_BASE_URL } from "../../config";
 
 export const MenuPage = () => {
   const [menu, setMenu] = useState({
@@ -21,7 +22,7 @@ export const MenuPage = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/menu");
+        const response = await fetch(`${API_BASE_URL}/api/menu`);
         if (!response.ok) {
           throw new Error("Nepodařilo se načíst data.");
         }

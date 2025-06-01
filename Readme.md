@@ -14,7 +14,27 @@ npm run dev
 
 # Build for production
 npm run build
+
+# Build and run production preview (on port 3000)
+npm run prod
 ```
+
+## Environment Variables
+
+The application is configured using the `API_BASE_URL` environment variable, which can be set at runtime.
+
+### Local Development
+
+For local development, the default API base URL is `http://localhost:4000`. No additional configuration is needed.
+
+### Docker Runtime
+
+When running the Docker container, you can set the API base URL using an environment variable:
+```bash
+docker run -p 8080:3000 -e API_BASE_URL=http://api.example.com your-username/hotel-lovecky-zamecek:latest
+```
+
+This is particularly useful for Docker Compose environments where you need to configure the application based on the environment it's running in.
 
 ## CI/CD Pipeline
 
@@ -52,10 +72,36 @@ docker pull your-username/hotel-lovecky-zamecek:latest
 # docker pull your-username/hotel-lovecky-zamecek:sha-a1b2c3d
 
 # Run the container
-docker run -p 8080:80 your-username/hotel-lovecky-zamecek:latest
+# You can set the API base URL at runtime using an environment variable
+docker run -p 8080:3000 -e API_BASE_URL=http://api.example.com your-username/hotel-lovecky-zamecek:latest
 ```
 
 Then access the application at http://localhost:8080
+
+The application is configured to bind to all network interfaces (0.0.0.0) inside the container, making it accessible from outside the container. This ensures the web application is visible when running in Docker.
+
+### Docker Compose
+
+You can also use Docker Compose to run the application. A `docker-compose.yml` file is included in the repository:
+
+```yaml
+# docker-compose.yml
+version: '3'
+services:
+  web:
+    image: your-username/hotel-lovecky-zamecek:latest
+    ports:
+      - "8080:3000"
+    environment:
+      - API_BASE_URL=http://api.example.com
+```
+
+Run with:
+```bash
+docker-compose up
+```
+
+The `docker-compose.yml` file includes commented options that you can uncomment to build from the local Dockerfile or to add an API service.
 
 # Zdroje fotografií
 Image by <a href="https://pixabay.com/users/davidjonasfrei-14735032/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4718358">David-Jonas Frei</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=4718358">Pixabay</a>
