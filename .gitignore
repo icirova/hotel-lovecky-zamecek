@@ -1,7 +1,5 @@
 # Ignore the package-lock.json to prevent conflicts when collaborating
 
-package-lock.json
-
 # Logs
 logs
 *.log
@@ -64,3 +62,5 @@ ehthumbs_vista.db
 
 # Windows folder config file
 [Dd]esktop.ini
+
+.idea/*
