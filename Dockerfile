@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY . .
 
+RUN npm run build
+
 # Copy the entrypoint script
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
