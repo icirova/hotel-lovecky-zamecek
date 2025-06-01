@@ -10,7 +10,6 @@ export const CardList = ({rooms}) => {
     navigate(`/detail/${roomId}`)
   };
 
-console.log(rooms)
 
   return <section className="dark">
     <div className="container">
