@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  web:
+    image: your-username/hotel-lovecky-zamecek:latest
+    # Alternatively, build from local Dockerfile
+    # build:
+    #   context: .
+    ports:
+      - "8080:3000"
+    environment:
+      - API_BASE_URL=http://localhost:4000
+    # If you have an API service, you can add it here
+    # depends_on:
+    #   - api
+
+  # Example API service (uncomment and configure as needed)
+  # api:
+  #   image: your-api-image:latest
+  #   ports:
+  #     - "4000:4000"
+  #   environment:
+  #     - PORT=4000
