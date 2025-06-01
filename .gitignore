@@ -64,3 +64,5 @@ ehthumbs_vista.db
 
 # Windows folder config file
 [Dd]esktop.ini
+
+.idea/*
