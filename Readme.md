@@ -41,7 +41,7 @@ This is particularly useful for Docker Compose environments where you need to co
 This project uses GitHub Actions for continuous integration and deployment:
 1. Builds and tests the JavaScript application
 2. Extracts metadata for Docker image (tags, labels)
-3. Builds and pushes a Docker image to Docker Hub with appropriate tags and labels
+3. Builds and pushes multi-architecture Docker images (AMD64 and ARM64) to Docker Hub with appropriate tags and labels
 
 The Docker image is tagged with:
 - `latest` - Always available
@@ -59,7 +59,7 @@ To enable Docker Hub deployment, add these secrets to your GitHub repository:
 
 ### Docker
 
-The application is containerized using Docker. The image is available on Docker Hub.
+The application is containerized using Docker. The image is available on Docker Hub and supports both AMD64 (x86_64) and ARM64 architectures, making it compatible with regular PCs, Apple Silicon Macs, and ARM-based devices like Raspberry Pi.
 
 To run the container locally:
 ```bash
