@@ -1,23 +1,62 @@
 version: '3'
 
 services:
-  web:
-    image: your-username/hotel-lovecky-zamecek:latest
-    # Alternatively, build from local Dockerfile
-    # build:
-    #   context: .
+  zamecek-fe:
+    image: icirova/hotel-lovecky-zamecek:latest
     ports:
-      - "8080:3000"
+      - "${PORT:-3000}:3000"
     environment:
-      - API_BASE_URL=http://localhost:4000
-    # If you have an API service, you can add it here
-    # depends_on:
-    #   - api
+      - API_BASE_URL=http://zamecek-be:4000
+    depends_on:
+      - db
+      - zamecek-be
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
-  # Example API service (uncomment and configure as needed)
-  # api:
-  #   image: your-api-image:latest
-  #   ports:
-  #     - "4000:4000"
-  #   environment:
-  #     - PORT=4000
+  zamecek-be:
+    image: icirova/hotel-lovecky-zamecek-be:latest
+    ports:
+      - "${PORT:-4000}:4000"
+    hostname: zamecek-be
+    depends_on:
+      - db
+    environment:
+      - PORT=${PORT:-4000}
+      - NODE_ENV=${NODE_ENV:-development}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000}
+      - DB_HOST=db
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-lovecky-zamecek}
+      - DB_USER=${DB_USER:-lovec}
+      - DB_PASSWORD=${DB_PASSWORD:-lovecPg}
+      - DB_SSL=${DB_SSL:-false}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: icirova/hotel-lovecky-zamecek-db:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-lovecPg}
+      - POSTGRES_DB=${DB_NAME:-lovecky-zamecek}
+      - POSTGRES_USER=${DB_USER:-lovec}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-lovec}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
