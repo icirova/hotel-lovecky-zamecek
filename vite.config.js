@@ -22,7 +22,10 @@ export default defineConfig({
     hmr: false,
     port: 3000,
     cors: true,
-    allowedHosts: 'all', // Allow any host to access the dev server
+    allowedHosts: true, // Allow any host to access the dev server
+  },
+  preview: {
+    allowedHosts: true, // Allow any host to access the preview server
   },
   build: {
     outDir: '../dist',
