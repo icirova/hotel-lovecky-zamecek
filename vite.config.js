@@ -20,6 +20,9 @@ export default defineConfig({
   publicDir: '../public',
   server: {
     hmr: false,
+    port: 3000,
+    cors: true,
+    allowedHosts: 'all', // Allow any host to access the dev server
   },
   build: {
     outDir: '../dist',
