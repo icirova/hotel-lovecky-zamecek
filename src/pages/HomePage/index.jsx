@@ -4,6 +4,7 @@ import { CardList } from '../../components/CardList/CardList';
 import { OrderForm } from '../../components/OrderForm/OrderForm';
 import { Restaurant } from '../../components/Restaurant/Restaurant';
 import { Events } from '../../components/Events/Events';
+import {API_BASE_URL} from "../../config.js";
 
 export const HomePage = ({}) => {
 
@@ -13,7 +14,7 @@ export const HomePage = ({}) => {
     ()=> {
       const fetchData = async () => {
         try {
-          const response = await fetch("http://localhost:4000/api/rooms");
+          const response = await fetch(`${API_BASE_URL}/api/rooms`);
           if (!response.ok) {
             throw new Error("Nepodařilo se načíst data.");
           }
