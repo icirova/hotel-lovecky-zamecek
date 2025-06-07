@@ -18,6 +18,9 @@ import fs from 'fs';
 export default defineConfig({
   root: './src',
   publicDir: '../public',
+  define: {
+    'import.meta.env.VITE_API_BASE_URL': JSON.stringify(process.env.VITE_API_BASE_URL || 'http://localhost:4000'),
+  },
   server: {
     hmr: false,
     port: 3000,
