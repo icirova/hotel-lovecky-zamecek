@@ -6,7 +6,7 @@ services:
     ports:
       - "${PORT:-3000}:3000"
     environment:
-      - API_BASE_URL=http://zamecek-be:4000
+      - VITE_API_BASE_URL=http://zamecek-be:4000
     depends_on:
       - db
       - zamecek-be

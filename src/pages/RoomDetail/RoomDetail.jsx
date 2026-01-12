@@ -1,6 +1,7 @@
 import "./RoomDetail.css"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
+import {API_BASE_URL} from "../../config.js";
 
 export const RoomDetail = () => {
 
@@ -10,7 +11,7 @@ export const RoomDetail = () => {
   useEffect(
      () => {
       const fetchData = async () => {
-        const response = await fetch(`http://localhost:4000/api/rooms/${id}`)
+        const response = await fetch(`${API_BASE_URL}/api/rooms/${id}`)
         const data = await response.json()
         setRoom(data)
       };
